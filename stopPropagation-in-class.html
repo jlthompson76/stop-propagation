@@ -32,13 +32,25 @@
 				Button 2
 			</button>
 		</div>
-    </body>
+
     <script>
-        // 1. Add an event listener that console logs "bubbling does not reach here" when user clicks element with id of "div1"
-​
-        // 2. Add an event listener that console logs "bubbling reaches here" when user clicks element with id of "div2"
-​
-        // 3. Add an event listener that stops propagation when user clicks button with id of "btn1"
-​
-    </script>
+
+		// 1. Add an event listener that console logs "bubbling does not reach here" when user clicks element with id of "div1"
+
+		document.querySelector(`#div1`).addEventListener(`click`, function() {console.log('bubbling does not reach here');})
+
+		// 2. Add an event listener that console logs "bubbling reaches here" when user clicks element with id of "div2"
+		
+		document.querySelector(`#div2`).addEventListener(`click`, function() {console.log('bubbling reaches here');})
+		
+		// 3. Add an event listener that stops propagation when user clicks button with id of "btn1"
+		
+		document.querySelector(`#btn1`).addEventListener("click", stopPropagation);
+		
+		function stopPropagation(e) {e.stopPropagation();}
+
+	</script>
+	
+	</body>
+
 </html>
